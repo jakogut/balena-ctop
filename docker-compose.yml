@@ -1,0 +1,7 @@
+version: '2'
+services:
+  htop:
+    build: ./htop
+    ports:
+      - 7681:7681 
+    restart: on-failure
