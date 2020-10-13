@@ -4,5 +4,7 @@ services:
     build: ./htop
     ports:
       - 7681:7681 
+    labels:
+      io.balena.features.balena-socket: '1'
     pid: "host"
     restart: on-failure

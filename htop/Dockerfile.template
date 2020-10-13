@@ -1,6 +1,7 @@
 FROM balenalib/%%BALENA_MACHINE_NAME%%-alpine:3.11-run as run
 
-RUN apk update \
-	&& apk add --no-cache htop ttyd
+RUN apk add ctop --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing --allow-untrusted \
+	&& apk add --no-cache ttyd \
+	&& rm -rf /var/cache/apk
 
-CMD ["ttyd", "htop"]
+CMD ["ttyd", "ctop"]
